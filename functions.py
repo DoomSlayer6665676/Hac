@@ -29,6 +29,9 @@ def add_function_handler():
     dp.add_handler(CommandHandler("func_sum", func_sum))
     dp.add_handler(CommandHandler("func_tuple", func_tuple))
     dp.add_handler(CommandHandler("func_type", func_type))
+    dp.add_handler(CommandHandler("special_print", special_print))
+    dp.add_handler(CommandHandler("special_print", Special_symbols))
+    dp.add_handler(CommandHandler("func_print", func_print))
 
 
 def func_abs(update, context):
@@ -384,3 +387,64 @@ def func_type(update, context):
                                    'параметр, '
                                    'то она вернет тип этого объекта. Если же передать три параметра, то можно создать'
                                    ' новый объект.')
+
+
+def func_print(update, context):
+    asyncio.run(send_photo_file('''>>> print('Это предложение выводится на экран')
+    Это предложение выводится на экран''', update.message.chat_id, context, name='special_print'))
+    update.message.reply_html(text='Функция <u><b>print()</b></u> используется для вывода данных на экран. Эти данные '
+                                   'мы можем записать и в файл, но об этом мы поговорим позже.\n'
+                                   ' /spspecial_print, /Special_symbols')
+
+
+def special_print(update, context):
+    asyncio.run(send_photo_file('''>>> print('При')
+... print('вет!')
+При
+вет!
+>>> print('При', end='')
+... print('вет!')
+Привет!
+>>> print('Раз', 'два', 'три')
+Раз два три
+>>> print('Раз', 'два', 'три', sep='--')
+Раз--два--три''', update.message.chat_id, context, name='special_print'))
+    update.message.reply_html(text='Функция <u><b>print</b></u>, наряду с другими аргументами,'
+                                   ' может (вместе или по отдельности) '
+                                   'принимать два следующих аргумента: <u>sep</u> — разделитель аргументов '
+                                   '(по умолчанию пробел)'
+                                   ' и <u>end</u> — то, что выводится после вывода всех аргументов '
+                                   '(по умолчанию символ начала новой строки).')
+
+
+def Special_symbols(update, context):
+    asyncio.run(send_photo_file(r'''>>> print('восход\t07:15\nзакат\t22:03')
+восход	07:15
+закат	22:03
+>>> print('Предыдущая строка этой программы выглядит так:')
+... print('print(\'восход\\t07:15\\nзакат\\t22:03\')')
+Предыдущая строка этой программы выглядит так:
+print('восход\t07:15\nзакат\t22:03')
+''', update.message.chat_id, context, name='Special_symbols'))
+    update.message.reply_html(text='<u><b>Экранирующая последовательность</b></u>'
+                                   r'Если внутри кавычек встречается символ \ — обратная косая черта, обратный слеш,'
+                                   ' бэкслеш, он вместе с идущим после '
+                                   'него символом образует экранирующую последовательность (escape sequence) и '
+                                   'воспринимается интерпретатором как единый специальный символ. '
+                                   r'В частности, \n — символ начала новой строки. Кроме того, \t — табуляция, '
+                                   r'\'  — кавычка, \\ — просто бэкслеш')
+    asyncio.run(send_photo_file(r'''>>> print(r'\\\\\\\nnnnn <- забор, переходящий в низкую изгородь')
+\\\\\\\nnnnn <- забор, переходящий в низкую изгородь
+'''
+                                ">>> print('''Нужно сказать много важного.\n"
+                                "Одной строки для этого мало.\n"
+                                "Зато три - в самый раз.''')\n"
+                                "Нужно сказать много важного.\n"
+                                "Одной строки для этого мало.\n"
+                                "Зато три - в самый раз.\n", update.message.chat_id, context, name='Special_symbols'))
+    update.message.reply_html(
+        text='При этом если приписать букву r перед открывающей строку кавычкой, бэкслеши будут считаться обычными '
+             'символами. '
+             'А если открывать и закрывать строку не одной,'
+             ' а тремя кавычками подряд, внутри можно делать обычные переводы строки '
+             '(внутри одинарных кавычек так делать нельзя).')
