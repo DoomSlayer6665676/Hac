@@ -35,12 +35,12 @@ def add_function_handler():
 
 
 def func_abs(update, context):
-    asyncio.run(send_photo_file('x = -42\n'
+    send_photo_file('x = -42\n'
                                 'abs_x = abs(x)\n'
                                 'print(f"Абсолютное значение {x} это {abs_x}")\n'
                                 '# Вывод: Абсолютное значение -42 это 42\n',
                                 update.message.chat_id, context,
-                                name='func_abs'))
+                                name='func_abs')
     update.message.reply_html(text='Встроенная функция <u><b>abs(x)</b></u> в Python возвращает абсолютное значение '
                                    'аргумента x, '
                                    'который может быть целым или числом с плавающей точкой, или же объектом, '
@@ -52,9 +52,9 @@ def func_abs(update, context):
 
 
 def func_chr(update, context):
-    asyncio.run(send_photo_file('>>> chr(97)\n'
+    send_photo_file('>>> chr(97)\n'
                                 "'a'\n", update.message.chat_id, context,
-                                name='func_chr'))
+                                name='func_chr')
     update.message.reply_html(text='Функция <u><b>chr()</b></u> возвращает строку, представляющую символ Unicode для '
                                    'переданного числа. Она является противоположностью <u><b>ord()</b></u> ('
                                    '/func_ord), '
@@ -62,21 +62,21 @@ def func_chr(update, context):
 
 
 def func_callable(update, context):
-    asyncio.run(send_photo_file('>>> callable(5)\n'
+    send_photo_file('>>> callable(5)\n'
                                 "False\n", update.message.chat_id, context,
-                                name='func_callable'))
+                                name='func_callable')
     update.message.reply_html(text='Вызываемый объект — это объект, который можно вызвать. Функция <u><b>callable('
                                    ')</b></u> сообщает, является ли объект вызываемым. Если да, то возвращает '
                                    '<u><b>True</b></u>, а в противном случае — <u><b>False</b></u>.')
 
 
 def func_dict(update, context):
-    asyncio.run(send_photo_file('>>> dict({"a":1, "b":2}, c = 3)\n'
+    send_photo_file('>>> dict({"a":1, "b":2}, c = 3)\n'
                                 "{'a': 1, 'b': 2, 'c': 3}\n\n"
                                 '>>> list = [["a",1],["b",2]]\n'
                                 '>>> dict(list)\n'
                                 "{'a': 1, 'b': 2}\n", update.message.chat_id, context,
-                                name='func_dict'))
+                                name='func_dict')
     update.message.reply_html(text='Эта функция используется в Python для создания словарей. Это же можно делать и '
                                    'вручную, но функция предоставляет большую гибкость и дополнительные возможности. '
                                    'Например, ей в качестве параметра можно передать несколько словарей, объединив их '
@@ -84,21 +84,21 @@ def func_dict(update, context):
 
 
 def func_dir(update, context):
-    asyncio.run(send_photo_file('>>> x = ["Яблоко", "Апельсин", "Гранат"]\n'
+    send_photo_file('>>> x = ["Яблоко", "Апельсин", "Гранат"]\n'
                                 '>>> print(dir(x))\n'
                                 "['__add__', '__class__', '__contains__',....]\n", update.message.chat_id, context,
-                                name='func_dir'))
+                                name='func_dir')
     update.message.reply_html(text='Функция <u><b>dir()</b></u> получает список вех атрибутов и методов объекта. Если '
                                    'объект не передать, то функция вернет все имена модулей в локальном пространстве '
                                    'имен.')
 
 
 def func_enumerate(update, context):
-    asyncio.run(send_photo_file(">>> x = 'Строка'\n"
+    send_photo_file(">>> x = 'Строка'\n"
                                 ">>> list(enumerate(x))\n"
                                 "[(0, 'С'), (1, 'т'), (2, 'р'), (3, 'о'), (4, 'к'), (5, 'а')]\n",
                                 update.message.chat_id, context,
-                                name='func_enumerate'))
+                                name='func_enumerate')
     update.message.reply_html(text='В качестве параметра эта функция принимает последовательность. После этого она '
                                    'перебирает каждый элемент и возвращает его вместе со счетчиком в виде '
                                    'перечисляемого объекта. Основная особенность таких объектов — возможность '
@@ -106,23 +106,23 @@ def func_enumerate(update, context):
 
 
 def func_eval(update, context):
-    asyncio.run(send_photo_file(">>> eval('2+2')\n"
+    send_photo_file(">>> eval('2+2')\n"
                                 "4\n"
                                 ">>> eval('2*7')\n"
                                 "14\n"
                                 ">>> eval('5/2')\n"
                                 "2.5\n", update.message.chat_id, context,
-                                name='func_eval'))
+                                name='func_eval')
     update.message.reply_html(text='<u><b>eval()</b></u> обрабатывает переданное в нее выражение и исполняет его как '
                                    'выражение Python. После этого возвращается значение. Чаще всего эта функция '
                                    'используется для выполнения математических функций.')
 
 
 def func_filter(update, context):
-    asyncio.run(send_photo_file("list1 = [3, 5, 4, 8, 6, 33, 22, 18, 76, 1]\n"
+    send_photo_file("list1 = [3, 5, 4, 8, 6, 33, 22, 18, 76, 1]\n"
                                 "result = list(filter(lambda x: (x%2 != 0) , list1))\n"
                                 "print(result)\n", update.message.chat_id, context,
-                                name='func_float'))
+                                name='func_float')
     update.message.reply_html(text='Как можно догадаться по названию, эта функция используется для перебора '
                                    'итерируемых объектов и последовательностей, таких как списки, кортежи и словари. '
                                    'Но перед ее использованием нужно также иметь подходящую функцию, которая бы '
@@ -131,40 +131,40 @@ def func_filter(update, context):
 
 
 def func_float(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> float('596')\n"
         "596.0\n"
         ">>> float(26)\n"
         "26.0\n", update.message.chat_id, context,
-        name='func_float'))
+        name='func_float')
     update.message.reply_html(text='Эта встроенная функция конвертирует число или строку в число с плавающей точкой и '
                                    'возвращает результат')
 
 
 def func_input(update, context):
-    asyncio.run(send_photo_file(">>> value = input('Пожалуйста, введите значение: ')\n"
+    send_photo_file(">>> value = input('Пожалуйста, введите значение: ')\n"
                                 "Пожалуйста, введите значение: 123\n"
                                 ">>> value\n"
                                 "'123'\n", update.message.chat_id, context,
-                                name='func_input'))
+                                name='func_input')
     update.message.reply_html(text='Функция <u><b>input()</b></u> — это быстрый и удобный способ получить данные от '
                                    'пользователя. Вызов этой функции предоставляет пользователю возможность ввести на '
                                    'экране текст. Затем он конвертируется в строку и возвращается в программу.')
 
 
 def func_int(update, context):
-    asyncio.run(send_photo_file(">>> int(5.6)\n"
+    send_photo_file(">>> int(5.6)\n"
                                 "5\n\n"
                                 ">>> int('0101', 2)\n"
                                 "5\n", update.message.chat_id, context,
-                                name='func_int'))
+                                name='func_int')
     update.message.reply_html(text='Эта функция возвращает целое число из объекта, переданного в параметра. Она может '
                                    'конвертировать числа с разным основанием (шестнадцатеричные, двоичные и так '
                                    'далее) в целые.')
 
 
 def func_iter(update, context):
-    asyncio.run(send_photo_file(">>> lis = ['a', 'b', 'c', 'd', 'e']\n"
+    send_photo_file(">>> lis = ['a', 'b', 'c', 'd', 'e']\n"
                                 ">>> x = iter(lis)\n"
                                 ">>> next(x)\n"
                                 "'a'\n"
@@ -174,7 +174,7 @@ def func_iter(update, context):
                                 "'c'\n"
                                 ">>> next(x)\n"
                                 "'d'\n", update.message.chat_id, context,
-                                name='func_iter'))
+                                name='func_iter')
     update.message.reply_html(text='Эта функция принимает объект и возвращает итерируемый объект. Сам по себе он '
                                    'бесполезен, но оказывается крайне эффективным при использовании в циклах for и '
                                    'while. Благодаря этому объект можно перебирать по одному свойству за '
@@ -182,7 +182,7 @@ def func_iter(update, context):
 
 
 def func_max(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> max('a', 'A')\n"
         "'a'\n\n"
         ">>> x = [5, 7, 8, 2, 5]\n"
@@ -191,14 +191,14 @@ def func_max(update, context):
         ">>> x = ['Яблоко', 'Апельсин', 'Автомобиль']\n"
         ">>> max(x, key = len)\n"
         "'Яблоко'\n", update.message.chat_id, context,
-        name='func_max'))
+        name='func_max')
     update.message.reply_html(text='Эта функция используется для нахождения «максимального» значения в '
                                    'последовательности, итерируемом объекте и так далее. В параметрах можно менять '
                                    'способ вычисления максимального значения.')
 
 
 def func_min(update, context):
-    asyncio.run(send_photo_file(">>> min('a','A')\n"
+    send_photo_file(">>> min('a','A')\n"
                                 "'A'\n\n"
                                 ">>> x = [5, 7, 8, 2, 5]\n"
                                 ">>> min(x)\n"
@@ -206,30 +206,30 @@ def func_min(update, context):
                                 ">>> x = ['Виноград', 'Манго', 'Фрукты', 'Клубника']\n"
                                 ">>> min(x)\n"
                                 "'Виноград'\n", update.message.chat_id, context,
-                                name='func_min'))
+                                name='func_min')
     update.message.reply_html(text='Эта функция используется для нахождения «минимального» значения в '
                                    'последовательности, итерируемом объекте и так далее. В параметрах можно менять '
                                    'способ вычисления минимального значения.')
 
 
 def func_len(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> x = (2, 3, 1, 6, 7)\n"
         ">>> len(x)\n"
         "5\n"
         ">>> len('Строка')\n"
         "6\n", update.message.chat_id, context,
-        name='func_len'))
+        name='func_len')
     update.message.reply_html(text='Эта функция используется для вычисления длины последовательности или итерируемого '
                                    'объекта.')
 
 
 def func_list(update, context):
-    asyncio.run(send_photo_file(">>> list('Привет')\n"
+    send_photo_file(">>> list('Привет')\n"
                                 "['П', 'р', 'и', 'в', 'е', 'т']\n\n"
                                 ">>> list({1:'a', 2:'b', 3:'c'})\n"
                                 "[1, 2, 3]\n", update.message.chat_id, context,
-                                name='func_list'))
+                                name='func_list')
     update.message.reply_html(text='В качестве параметра функция <u><b>list()</b></u> принимает итерируемый объект и '
                                    'возвращает '
                                    'список. Она обеспечивает большие гибкость и скорость при создании списков по '
@@ -237,7 +237,7 @@ def func_list(update, context):
 
 
 def func_map(update, context):
-    asyncio.run(send_photo_file(">>> def inc(x):\n"
+    send_photo_file(">>> def inc(x):\n"
                                 "\t\t\tx = x + 1\n"
                                 "\t\t\treturn x\n\n"
                                 ">>> lis = [1,2,3,4,5]\n"
@@ -249,7 +249,7 @@ def func_map(update, context):
                                 "4\n"
                                 "5\n"
                                 "6\n", update.message.chat_id, context,
-                                name='func_map'))
+                                name='func_map')
     update.message.reply_html(text='Используется для применения определенной функции к итерируемому объекту. Она '
                                    'возвращает результат в виде итерируемого объекта (списки, кортежи, множества). '
                                    'Можно передать и несколько объектов, но в таком случае нужно будет и '
@@ -257,7 +257,7 @@ def func_map(update, context):
 
 
 def func_next(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> lis = ['a', 'b', 'c', 'd', 'e']\n"
         ">>> x = iter(lis)\n"
         ">>> next(x)\n"
@@ -268,73 +268,73 @@ def func_next(update, context):
         "'c'\n"
         ">>> next(x)\n"
         "'d'\n", update.message.chat_id, context,
-        name='func_next'))
+        name='func_next')
     update.message.reply_html(text='Используется для итерируемых объектов. Умеет получать следующий (next) элемент в '
                                    'последовательности. Добравшись до конца, выводит значение по умолчанию.')
 
 
 def func_ord(update, context):
-    asyncio.run(send_photo_file('>>> ord("a")\n'
+    send_photo_file('>>> ord("a")\n'
                                 '97\n'
                                 '>>> ord("A")\n'
                                 '"65"\n', update.message.chat_id, context,
-                                name='func_ord'))
+                                name='func_ord')
     update.message.reply_html(text='Функция <u><b>ord()</b></u> принимает один символ или строку длиной в один символ '
                                    'и возвращает соответствующее значение Unicode.')
 
 
 def func_reversed(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> x = [3,4,5]\n"
         ">>> b = reversed(x)\n"
         ">>> list(b)\n"
         "[5, 4, 3]\n", update.message.chat_id, context,
-        name='func_reversed'))
+        name='func_reversed')
     update.message.reply_html(text='Эта функция предоставляет простой и быстрый способ развернуть порядок элементов в '
                                    'последовательности. В качестве параметра она принимает валидную '
                                    'последовательность, например список, а возвращает итерируемый объект.')
 
 
 def func_range(update, context):
-    asyncio.run(send_photo_file(">>> list(range(10,20,2))\n"
+    send_photo_file(">>> list(range(10,20,2))\n"
                                 "[10, 12, 14, 16, 18]\n", update.message.chat_id, context,
-                                name='func_range'))
+                                name='func_range')
     update.message.reply_html(text='Используется для создания последовательности чисел с заданными значениями от и '
                                    'до, а также интервалом. Такая последовательность часто используется в циклах, '
                                    'особенно в цикле for.')
 
 
 def func_sorted(update, context):
-    asyncio.run(send_photo_file(">>> X = [4, 5, 7, 3, 1]\n"
+    send_photo_file(">>> X = [4, 5, 7, 3, 1]\n"
                                 ">>> sorted(X)\n"
                                 "[1, 3, 4, 5, 7]\n", update.message.chat_id, context,
-                                name='func_sorted'))
+                                name='func_sorted')
     update.message.reply_html(text='Используется для сортировки последовательностей значений разных типов. Например, '
                                    'может отсортировать список строк в алфавитном порядке или список числовых '
                                    'значений по возрастанию или убыванию.')
 
 
 def func_str(update, context):
-    asyncio.run(send_photo_file(
+    send_photo_file(
         ">>> str(5)\n"
         "'5'\n\n"
         ">>> X = [5,6,7]\n"
         ">>> str(X)\n"
         "'[5, 6, 7]'\n", update.message.chat_id, context,
-        name='func_str'))
+        name='func_str')
     update.message.reply_html(text='Используется для создания строковых представлений объектов, но не меняет сам '
                                    'объект, а возвращает новый. У нее есть встроенные механизмы кодировки и обработки '
                                    'ошибок, которые помогают при конвертации.')
 
 
 def func_set(update, context):
-    asyncio.run(send_photo_file(">>> set()\n"
+    send_photo_file(">>> set()\n"
                                 "set()\n\n"
                                 ">>> set('Hello')\n"
                                 "{'e', 'l', 'o', 'H'}\n\n"
                                 ">>> set((1,2,3,4,5))\n"
                                 "{1, 2, 3, 4, 5}\n", update.message.chat_id, context,
-                                name='func_set'))
+                                name='func_set')
     update.message.reply_html(text='Функция <u><b>set()</b></u> используется для создания наборов данных, которые '
                                    'передаются в '
                                    'качестве параметра. Обычно это последовательность, например строка или список, '
@@ -342,28 +342,28 @@ def func_set(update, context):
 
 
 def func_sum(update, context):
-    asyncio.run(send_photo_file(">>> x = [1, 2, 5, 3, 6, 7]\n"
+    send_photo_file(">>> x = [1, 2, 5, 3, 6, 7]\n"
                                 ">>> sum(x)\n"
                                 "24\n", update.message.chat_id, context,
-                                name='func_sum'))
+                                name='func_sum')
     update.message.reply_html(text='Вычисление суммы — стандартная задача во многих приложениях. И для этого в Python '
                                    'есть встроенная функция. Она автоматически суммирует все элементы и возвращает '
                                    'сумму.')
 
 
 def func_tuple(update, context):
-    asyncio.run(send_photo_file(">>> tuple('Привет')\n"
+    send_photo_file(">>> tuple('Привет')\n"
                                 "('П', 'р', 'и', 'в', 'е', 'т')\n\n"
                                 ">>> tuple([1, 2, 3, 4, 5])\n"
                                 "(1, 2, 3, 4, 5)\n", update.message.chat_id, context,
-                                name='func_tuple'))
+                                name='func_tuple')
     update.message.reply_html(text='Принимает один аргумент (итерируемый объект), которым может быть, например, '
                                    'список или словарь, последовательность или итератор и возвращает его в форме '
                                    'кортежа. Если не передать объект, то вернется пустой кортеж.')
 
 
 def func_type(update, context):
-    asyncio.run(send_photo_file(">>> x = 1\n"
+    send_photo_file(">>> x = 1\n"
                                 ">>> type(x)\n"
                                 "<class 'int'>\n\n"
                                 ">>> x = [1, 2, 3]\n"
@@ -382,7 +382,7 @@ def func_type(update, context):
                                 "True\n"
                                 ">>> type(f)\n"
                                 "<class '__main__.Foo2'>\n", update.message.chat_id, context,
-                                name='func_type'))
+                                name='func_type')
     update.message.reply_html(text='Функция <u><b>type()</b></u> применяется в двух сценариях. Если передать один '
                                    'параметр, '
                                    'то она вернет тип этого объекта. Если же передать три параметра, то можно создать'
@@ -390,15 +390,15 @@ def func_type(update, context):
 
 
 def func_print(update, context):
-    asyncio.run(send_photo_file('''>>> print('Это предложение выводится на экран')
-    Это предложение выводится на экран''', update.message.chat_id, context, name='special_print'))
+    send_photo_file('''>>> print('Это предложение выводится на экран')
+    Это предложение выводится на экран''', update.message.chat_id, context, name='special_print')
     update.message.reply_html(text='Функция <u><b>print()</b></u> используется для вывода данных на экран. Эти данные '
                                    'мы можем записать и в файл, но об этом мы поговорим позже.\n'
                                    ' /spspecial_print, /Special_symbols')
 
 
 def special_print(update, context):
-    asyncio.run(send_photo_file('''>>> print('При')
+    send_photo_file('''>>> print('При')
 ... print('вет!')
 При
 вет!
@@ -408,7 +408,7 @@ def special_print(update, context):
 >>> print('Раз', 'два', 'три')
 Раз два три
 >>> print('Раз', 'два', 'три', sep='--')
-Раз--два--три''', update.message.chat_id, context, name='special_print'))
+Раз--два--три''', update.message.chat_id, context, name='special_print')
     update.message.reply_html(text='Функция <u><b>print</b></u>, наряду с другими аргументами,'
                                    ' может (вместе или по отдельности) '
                                    'принимать два следующих аргумента: <u>sep</u> — разделитель аргументов '
@@ -418,14 +418,14 @@ def special_print(update, context):
 
 
 def Special_symbols(update, context):
-    asyncio.run(send_photo_file(r'''>>> print('восход\t07:15\nзакат\t22:03')
+    send_photo_file(r'''>>> print('восход\t07:15\nзакат\t22:03')
 восход	07:15
 закат	22:03
 >>> print('Предыдущая строка этой программы выглядит так:')
 ... print('print(\'восход\\t07:15\\nзакат\\t22:03\')')
 Предыдущая строка этой программы выглядит так:
 print('восход\t07:15\nзакат\t22:03')
-''', update.message.chat_id, context, name='Special_symbols'))
+''', update.message.chat_id, context, name='Special_symbols')
     update.message.reply_html(text='<u><b>Экранирующая последовательность</b></u>'
                                    r'Если внутри кавычек встречается символ \ — обратная косая черта, обратный слеш,'
                                    ' бэкслеш, он вместе с идущим после '
@@ -433,7 +433,7 @@ print('восход\t07:15\nзакат\t22:03')
                                    'воспринимается интерпретатором как единый специальный символ. '
                                    r'В частности, \n — символ начала новой строки. Кроме того, \t — табуляция, '
                                    r'\'  — кавычка, \\ — просто бэкслеш')
-    asyncio.run(send_photo_file(r'''>>> print(r'\\\\\\\nnnnn <- забор, переходящий в низкую изгородь')
+    send_photo_file(r'''>>> print(r'\\\\\\\nnnnn <- забор, переходящий в низкую изгородь')
 \\\\\\\nnnnn <- забор, переходящий в низкую изгородь
 '''
                                 ">>> print('''Нужно сказать много важного.\n"
@@ -441,7 +441,7 @@ print('восход\t07:15\nзакат\t22:03')
                                 "Зато три - в самый раз.''')\n"
                                 "Нужно сказать много важного.\n"
                                 "Одной строки для этого мало.\n"
-                                "Зато три - в самый раз.\n", update.message.chat_id, context, name='Special_symbols'))
+                                "Зато три - в самый раз.\n", update.message.chat_id, context, name='Special_symbols')
     update.message.reply_html(
         text='При этом если приписать букву r перед открывающей строку кавычкой, бэкслеши будут считаться обычными '
              'символами. '

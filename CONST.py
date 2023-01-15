@@ -1,9 +1,10 @@
 import logging
-import asyncio
 import os
+import asyncio
 from carbon import Carbon
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, ConversationHandler
 from telegram import ReplyKeyboardMarkup
+import sqlite3
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG
@@ -38,14 +39,29 @@ client = Carbon(
 )
 
 
-async def send_photo_file(img_text, id_chat, context, name=None):
-    path = await client.create(img_text, file=name)
-    print(path)
-    img = open(name + '.png', 'rb')
-    context.bot.send_photo(id_chat, img)
-    img.close()
-    if os.path.isfile(f'{name}.png'):
-        os.remove(f'{name}.png')
-        print("success")
+def send_photo_file(img_text, id_chat, context, name=None):
+    con = sqlite3.connect("photo_id.sqlite")
+    cur = con.cursor()
+    result = cur.execute("SELECT * FROM id WHERE Name=?", (name,)).fetchall()
+    if result:
+        pass
+        context.bot.send_photo(id_chat, result[0][-1])
     else:
-        print("File doesn't exists!")
+        asyncio.run(create_photo(img_text, name2=name))
+        img = open(name + '.png', 'rb')
+        pho = context.bot.send_photo(id_chat, img)
+        img.close()
+        if os.path.isfile(f'{name}.png'):
+            os.remove(f'{name}.png')
+            print("success")
+        else:
+            print("File doesn't exists!")
+        cur.execute(f"INSERT INTO id VALUES {(name, pho['photo'][0]['file_id'])}")
+        print(pho['photo'][0]['file_id'])
+        con.commit()
+    con.close()
+
+
+async def create_photo(img_text, name2=None):
+    path = await client.create(img_text, file=name2)
+    print(path)

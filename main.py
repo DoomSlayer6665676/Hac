@@ -20,9 +20,8 @@ def help(update, context):
 def themes(update, context):
     update.message.reply_text('Темы:\n'
                               '/func - встроенные функции\n'
-                              '/DEBUG - отладка\n'
-                              '/list - методы списков\n'
-                              '/str - методы строк\n'
+                              '/listi - методы списков\n'
+                              '/stri - методы строк\n'
                               '/lamb - лямбда-функции\n'
                               '/math - модуль math\n'
                               '/rand - модуль random\n'
@@ -80,6 +79,38 @@ def func(update, context):
                                    '<u><b>tuple()</b></u> - создание кортежей \n(/func_tuple)\n'
                                    '<u><b>type()</b></u> - возвращает тип объекта либо создает новый объект '
                                    '\n(/func_type)\n')
+
+
+def DEBUG(update, context):
+    pass
+
+
+def listi(update, context):
+    pass
+
+
+def stri(update, context):
+    pass
+
+
+def lamb(update, context):
+    pass
+
+
+def math(update, context):
+    pass
+
+
+def rand(update, context):
+    pass
+
+
+def date(update, context):
+    pass
+
+
+def osi(update, context):
+    pass
 
 
 def main():
