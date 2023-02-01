@@ -3,7 +3,7 @@ import os
 import asyncio
 from carbon import Carbon
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler, ConversationHandler
-from telegram import ReplyKeyboardMarkup
+from telegram import ReplyKeyboardMarkup, Chat
 import sqlite3
 
 logging.basicConfig(
@@ -17,6 +17,8 @@ exp = [[' - что я умею'], [' - содержание справочник
 markup = ReplyKeyboardMarkup(board, one_time_keyboard=False)
 updater = Updater(TOKEN)
 dp = updater.dispatcher
+delete_group = []
+delete_photo = []
 client = Carbon(
     downloads_dir=os.getcwd(),
     colour="rgba(39,40,34,1)",
@@ -39,7 +41,7 @@ client = Carbon(
 )
 
 
-def send_photo_file(img_text, id_chat, context, name=None):
+def send_photo_file(img_text, id_chat, context, text=None, name=None):
     con = sqlite3.connect("photo_id.sqlite")
     cur = con.cursor()
     result = cur.execute("SELECT * FROM id WHERE Name=?", (name,)).fetchall()
@@ -49,7 +51,8 @@ def send_photo_file(img_text, id_chat, context, name=None):
     else:
         asyncio.run(create_photo(img_text, name2=name))
         img = open(name + '.png', 'rb')
-        pho = context.bot.send_photo(id_chat, img)
+        pho = context.bot.send_photo(id_chat, img, caption=text)
+        delete_photo.append(pho)
         img.close()
         if os.path.isfile(f'{name}.png'):
             os.remove(f'{name}.png')
