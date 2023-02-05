@@ -1,5 +1,6 @@
 from functions import *
 from Metods import *
+from rand import *
 
 
 def start(update, context):
@@ -25,9 +26,10 @@ def themes(update, context):
                                                   '/stri - методы строк\n'
                                                   '/lamb - лямбда-функции\n'
                                                   '/math - модуль math\n'
-                                                  '/rand - модуль random\n'
+                                                  '/rando - модуль random\n'
                                                   '/date - модуль datetime\n'
-                                                  '/osi - модуль os\n')['message_id'])
+                                                  '/osi - модуль os\n'
+                                                  '/syss - модуль sys\n')['message_id'])
 
 
 def bugs(update, context):
@@ -103,8 +105,14 @@ def math(update, context):
     pass
 
 
-def rand(update, context):
-    pass
+def rando(update, context):
+    update.message.reply_html("""/rand_random - число от 0.0 до 1.0
+/rand_seed - семя генератора чисел
+/rand_uniform - вещественное число в диапазоне
+/rand_randint - целое число в диапазоне
+/rand_choince - элемент из любой последовательности
+/rand_randrange - число из последовательности range
+/rand_shuffle - перемешивает последовательность""")
 
 
 def date(update, context):
@@ -112,6 +120,10 @@ def date(update, context):
 
 
 def osi(update, context):
+    pass
+
+
+def syss(update, context):
     pass
 
 
@@ -126,7 +138,14 @@ def main():
     dp.add_handler(CommandHandler("func", func))
     dp.add_handler(CommandHandler("listi", listi))
     dp.add_handler(CommandHandler("stri", stri))
+    dp.add_handler(CommandHandler("lamb", lamb))
+    dp.add_handler(CommandHandler("math", math))
+    dp.add_handler(CommandHandler("rando", rando))
+    dp.add_handler(CommandHandler("date", date))
+    dp.add_handler(CommandHandler("osi", osi))
+    dp.add_handler(CommandHandler("syss", syss))
     add_function_handler()
+    add_random_handler()
     updater.start_polling()
     updater.idle()
 
