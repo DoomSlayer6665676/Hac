@@ -37,19 +37,19 @@ random.random()
                     update.message.chat_id, context,
                     name='rand_seed')
     delete_group.append(update.message.reply_html(
-        text="""<u><b>random.seed(<Параметр>)</b></u> — настраивает генератор случайных чисел на новую последовательность. По умолчанию используется системное время. Если значение параметра будет одиноким, то генерируется одинокое число""")['message_id'])
+        text="""<u><b>random.seed([Параметр])</b></u> — настраивает генератор случайных чисел на новую последовательность. По умолчанию используется системное время. Если значение параметра будет одиноким, то генерируется одинокое число""")['message_id'])
 
 
 def rand_uniform(update, context):
-    send_photo_file("""<u><b>random.uniform(<Начало>, <Конец>)</b></u> — возвращает псевдослучайное вещественное число в диапазоне от <Начало> до <Конец>""",
-                    update.message.chat_id, context,
-                    name='rand_uniform')
-    delete_group.append(update.message.reply_html(
-        text="""random.uniform(0, 20)
+    send_photo_file("""random.uniform(0, 20)
 15.330185127252884
 
 random.uniform(0, 20)
-18.092324756265473""")['message_id'])
+18.092324756265473""",
+                    update.message.chat_id, context,
+                    name='rand_uniform')
+    delete_group.append(update.message.reply_html(
+        text="""<u><b>random.uniform([Начало], [Конец])</b></u> — возвращает псевдослучайное вещественное число в диапазоне от [Начало] до [Конец]""")['message_id'])
 
 
 def rand_randint(update, context):
@@ -60,7 +60,7 @@ random.randint(1,27)
                     update.message.chat_id, context,
                     name='rand_randint')
     delete_group.append(update.message.reply_html(
-        text="""<u><b>random.randint(<Начало>, <Конец>)</b></u> — возвращает псевдослучайное целое число в диапазоне от <Начало> до <Конец>""")['message_id'])
+        text="""<u><b>random.randint([Начало], [Конец])</b></u> — возвращает псевдослучайное целое число в диапазоне от [Начало] до [Конец]""")['message_id'])
 
 
 def rand_choince(update, context):
@@ -73,12 +73,12 @@ random.choice([1,2,'a','b'])
                     update.message.chat_id, context,
                     name='rand_choince')
     delete_group.append(update.message.reply_html(
-        text="""<u><b>random.choince(<Последовательность>)</b></u> — возвращает случайный элемент из любой последовательности (строки, списка, кортежа)""")['message_id'])
+        text="""<u><b>random.choince([Последовательность])</b></u> — возвращает случайный элемент из любой последовательности (строки, списка, кортежа)""")['message_id'])
 
 
 def rand_randrange(update, context):
     delete_group.append(update.message.reply_html(
-        text="""<u><b>random.randrange(<Начало>, <Конец>, <Шаг>)</b></u> — возвращает случайно выбранное число из последовательности range.""")['message_id'])
+        text="""<u><b>random.randrange([Начало], [Конец], [Шаг])</b></u> — возвращает случайно выбранное число из последовательности range.""")['message_id'])
 
 
 def rand_shuffle(update, context):
@@ -91,4 +91,4 @@ List
                     update.message.chat_id, context,
                     name='rand_shuffle')
     delete_group.append(update.message.reply_html(
-        text="""<u><b>random.shuffle(<Список>)</b></u> — перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов""")['message_id'])
+        text="""<u><b>random.shuffle([Список])</b></u> — перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов""")['message_id'])
