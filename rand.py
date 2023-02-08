@@ -16,8 +16,8 @@ def rand_random(update, context):
 0.07500815468466127""",
                     update.message.chat_id, context,
                     name='rand_random')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.random()</b></u> — возвращает псевдослучайное число от 0.0 до 1.0""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.random()</b></u> — возвращает псевдослучайное число от 0.0 до 1.0""")
 
 
 def rand_seed(update, context):
@@ -36,8 +36,8 @@ random.random()
 0.7665092563626442""",
                     update.message.chat_id, context,
                     name='rand_seed')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.seed([Параметр])</b></u> — настраивает генератор случайных чисел на новую последовательность. По умолчанию используется системное время. Если значение параметра будет одиноким, то генерируется одинокое число""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.seed([Параметр])</b></u> — настраивает генератор случайных чисел на новую последовательность. По умолчанию используется системное время. Если значение параметра будет одиноким, то генерируется одинокое число""")
 
 
 def rand_uniform(update, context):
@@ -48,8 +48,8 @@ random.uniform(0, 20)
 18.092324756265473""",
                     update.message.chat_id, context,
                     name='rand_uniform')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.uniform([Начало], [Конец])</b></u> — возвращает псевдослучайное вещественное число в диапазоне от [Начало] до [Конец]""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.uniform([Начало], [Конец])</b></u> — возвращает псевдослучайное вещественное число в диапазоне от [Начало] до [Конец]""")
 
 
 def rand_randint(update, context):
@@ -59,8 +59,8 @@ random.randint(1,27)
 22""",
                     update.message.chat_id, context,
                     name='rand_randint')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.randint([Начало], [Конец])</b></u> — возвращает псевдослучайное целое число в диапазоне от [Начало] до [Конец]""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.randint([Начало], [Конец])</b></u> — возвращает псевдослучайное целое число в диапазоне от [Начало] до [Конец]""")
 
 
 def rand_choince(update, context):
@@ -72,13 +72,13 @@ random.choice([1,2,'a','b'])
 'a'""",
                     update.message.chat_id, context,
                     name='rand_choince')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.choince([Последовательность])</b></u> — возвращает случайный элемент из любой последовательности (строки, списка, кортежа)""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.choince([Последовательность])</b></u> — возвращает случайный элемент из любой последовательности (строки, списка, кортежа)""")
 
 
 def rand_randrange(update, context):
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.randrange([Начало], [Конец], [Шаг])</b></u> — возвращает случайно выбранное число из последовательности range.""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.randrange([Начало], [Конец], [Шаг])</b></u> — возвращает случайно выбранное число из последовательности range.""")
 
 
 def rand_shuffle(update, context):
@@ -90,5 +90,5 @@ List
 [6, 7, 1, 9, 5, 8, 3, 2, 4]""",
                     update.message.chat_id, context,
                     name='rand_shuffle')
-    delete_group.append(update.message.reply_html(
-        text="""<u><b>random.shuffle([Список])</b></u> — перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов""")['message_id'])
+    update.message.reply_html(
+        text="""<u><b>random.shuffle([Список])</b></u> — перемешивает последовательность (изменяется сама последовательность). Поэтому функция не работает для неизменяемых объектов""")

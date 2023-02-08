@@ -41,33 +41,33 @@ def func_abs(update, context):
                     '# Вывод: Абсолютное значение -42 это 42\n',
                     update.message.chat_id, context,
                     name='func_abs')
-    delete_group.append(update.message.reply_html(text='Встроенная функция <u><b>abs(x)</b></u> в Python возвращает абсолютное значение '
+    update.message.reply_html(text='Встроенная функция <u><b>abs(x)</b></u> в Python возвращает абсолютное значение '
                                    'аргумента x, '
                                    'который может быть целым или числом с плавающей точкой, или же объектом, '
                                    'реализующим '
                                    'функцию __abs__(). Для комплексных чисел функция возвращает их величину. '
                                    'Абсолютное '
                                    'значение любого числового значения -x или +x — это всегда соответствующее '
-                                   'положительное +x.')['message_id'])
+                                   'положительное +x.')
 
 
 def func_chr(update, context):
     send_photo_file('>>> chr(97)\n'
                     "'a'\n", update.message.chat_id, context,
                     name='func_chr')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>chr()</b></u> возвращает строку, представляющую символ Unicode для '
+    update.message.reply_html(text='Функция <u><b>chr()</b></u> возвращает строку, представляющую символ Unicode для '
                                    'переданного числа. Она является противоположностью <u><b>ord()</b></u> ('
                                    '/func_ord), '
-                                   'которая принимает символ и возвращает его числовой код.')['message_id'])
+                                   'которая принимает символ и возвращает его числовой код.')
 
 
 def func_callable(update, context):
     send_photo_file('>>> callable(5)\n'
                     "False\n", update.message.chat_id, context,
                     name='func_callable')
-    delete_group.append(update.message.reply_html(text='Вызываемый объект — это объект, который можно вызвать. Функция <u><b>callable('
+    update.message.reply_html(text='Вызываемый объект — это объект, который можно вызвать. Функция <u><b>callable('
                                    ')</b></u> сообщает, является ли объект вызываемым. Если да, то возвращает '
-                                   '<u><b>True</b></u>, а в противном случае — <u><b>False</b></u>.')['message_id'])
+                                   '<u><b>True</b></u>, а в противном случае — <u><b>False</b></u>.')
 
 
 def func_dict(update, context):
@@ -77,10 +77,10 @@ def func_dict(update, context):
                     '>>> dict(list)\n'
                     "{'a': 1, 'b': 2}\n", update.message.chat_id, context,
                     name='func_dict')
-    delete_group.append(update.message.reply_html(text='Эта функция используется в Python для создания словарей. Это же можно делать и '
+    update.message.reply_html(text='Эта функция используется в Python для создания словарей. Это же можно делать и '
                                    'вручную, но функция предоставляет большую гибкость и дополнительные возможности. '
                                    'Например, ей в качестве параметра можно передать несколько словарей, объединив их '
-                                   'в один большой.')['message_id'])
+                                   'в один большой.')
 
 
 def func_dir(update, context):
@@ -88,9 +88,9 @@ def func_dir(update, context):
                     '>>> print(dir(x))\n'
                     "['__add__', '__class__', '__contains__',....]\n", update.message.chat_id, context,
                     name='func_dir')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>dir()</b></u> получает список вех атрибутов и методов объекта. Если '
+    update.message.reply_html(text='Функция <u><b>dir()</b></u> получает список вех атрибутов и методов объекта. Если '
                                    'объект не передать, то функция вернет все имена модулей в локальном пространстве '
-                                   'имен.')['message_id'])
+                                   'имен.')
 
 
 def func_enumerate(update, context):
@@ -99,10 +99,10 @@ def func_enumerate(update, context):
                     "[(0, 'С'), (1, 'т'), (2, 'р'), (3, 'о'), (4, 'к'), (5, 'а')]\n",
                     update.message.chat_id, context,
                     name='func_enumerate')
-    delete_group.append(update.message.reply_html(text='В качестве параметра эта функция принимает последовательность. После этого она '
+    update.message.reply_html(text='В качестве параметра эта функция принимает последовательность. После этого она '
                                    'перебирает каждый элемент и возвращает его вместе со счетчиком в виде '
                                    'перечисляемого объекта. Основная особенность таких объектов — возможность '
-                                   'размещать их в цикле для перебора.')['message_id'])
+                                   'размещать их в цикле для перебора.')
 
 
 def func_eval(update, context):
@@ -113,9 +113,9 @@ def func_eval(update, context):
                     ">>> eval('5/2')\n"
                     "2.5\n", update.message.chat_id, context,
                     name='func_eval')
-    delete_group.append(update.message.reply_html(text='<u><b>eval()</b></u> обрабатывает переданное в нее выражение и исполняет его как '
+    update.message.reply_html(text='<u><b>eval()</b></u> обрабатывает переданное в нее выражение и исполняет его как '
                                    'выражение Python. После этого возвращается значение. Чаще всего эта функция '
-                                   'используется для выполнения математических функций.')['message_id'])
+                                   'используется для выполнения математических функций.')
 
 
 def func_filter(update, context):
@@ -123,11 +123,11 @@ def func_filter(update, context):
                     "result = list(filter(lambda x: (x%2 != 0) , list1))\n"
                     "print(result)\n", update.message.chat_id, context,
                     name='func_float')
-    delete_group.append(update.message.reply_html(text='Как можно догадаться по названию, эта функция используется для перебора '
+    update.message.reply_html(text='Как можно догадаться по названию, эта функция используется для перебора '
                                    'итерируемых объектов и последовательностей, таких как списки, кортежи и словари. '
                                    'Но перед ее использованием нужно также иметь подходящую функцию, которая бы '
                                    'проверяла каждый элемент на валидность. Если элемент подходит, '
-                                   'он будет возвращаться в вывод.')['message_id'])
+                                   'он будет возвращаться в вывод.')
 
 
 def func_float(update, context):
@@ -137,8 +137,8 @@ def func_float(update, context):
         ">>> float(26)\n"
         "26.0\n", update.message.chat_id, context,
         name='func_float')
-    delete_group.append(update.message.reply_html(text='Эта встроенная функция конвертирует число или строку в число с плавающей точкой и '
-                                   'возвращает результат')['message_id'])
+    update.message.reply_html(text='Эта встроенная функция конвертирует число или строку в число с плавающей точкой и '
+                                   'возвращает результат')
 
 
 def func_input(update, context):
@@ -147,9 +147,9 @@ def func_input(update, context):
                     ">>> value\n"
                     "'123'\n", update.message.chat_id, context,
                     name='func_input')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>input()</b></u> — это быстрый и удобный способ получить данные от '
+    update.message.reply_html(text='Функция <u><b>input()</b></u> — это быстрый и удобный способ получить данные от '
                                    'пользователя. Вызов этой функции предоставляет пользователю возможность ввести на '
-                                   'экране текст. Затем он конвертируется в строку и возвращается в программу.')['message_id'])
+                                   'экране текст. Затем он конвертируется в строку и возвращается в программу.')
 
 
 def func_int(update, context):
@@ -158,9 +158,9 @@ def func_int(update, context):
                     ">>> int('0101', 2)\n"
                     "5\n", update.message.chat_id, context,
                     name='func_int')
-    delete_group.append(update.message.reply_html(text='Эта функция возвращает целое число из объекта, переданного в параметра. Она может '
+    update.message.reply_html(text='Эта функция возвращает целое число из объекта, переданного в параметра. Она может '
                                    'конвертировать числа с разным основанием (шестнадцатеричные, двоичные и так '
-                                   'далее) в целые.')['message_id'])
+                                   'далее) в целые.')
 
 
 def func_iter(update, context):
@@ -175,10 +175,10 @@ def func_iter(update, context):
                     ">>> next(x)\n"
                     "'d'\n", update.message.chat_id, context,
                     name='func_iter')
-    delete_group.append(update.message.reply_html(text='Эта функция принимает объект и возвращает итерируемый объект. Сам по себе он '
+    update.message.reply_html(text='Эта функция принимает объект и возвращает итерируемый объект. Сам по себе он '
                                    'бесполезен, но оказывается крайне эффективным при использовании в циклах for и '
                                    'while. Благодаря этому объект можно перебирать по одному свойству за '
-                                   'раз.\n/func_next')['message_id'])
+                                   'раз.\n/func_next')
 
 
 def func_max(update, context):
@@ -192,9 +192,9 @@ def func_max(update, context):
         ">>> max(x, key = len)\n"
         "'Яблоко'\n", update.message.chat_id, context,
         name='func_max')
-    delete_group.append(update.message.reply_html(text='Эта функция используется для нахождения «максимального» значения в '
+    update.message.reply_html(text='Эта функция используется для нахождения «максимального» значения в '
                                    'последовательности, итерируемом объекте и так далее. В параметрах можно менять '
-                                   'способ вычисления максимального значения.')['message_id'])
+                                   'способ вычисления максимального значения.')
 
 
 def func_min(update, context):
@@ -207,9 +207,9 @@ def func_min(update, context):
                     ">>> min(x)\n"
                     "'Виноград'\n", update.message.chat_id, context,
                     name='func_min')
-    delete_group.append(update.message.reply_html(text='Эта функция используется для нахождения «минимального» значения в '
+    update.message.reply_html(text='Эта функция используется для нахождения «минимального» значения в '
                                    'последовательности, итерируемом объекте и так далее. В параметрах можно менять '
-                                   'способ вычисления минимального значения.')['message_id'])
+                                   'способ вычисления минимального значения.')
 
 
 def func_len(update, context):
@@ -220,8 +220,8 @@ def func_len(update, context):
         ">>> len('Строка')\n"
         "6\n", update.message.chat_id, context,
         name='func_len')
-    delete_group.append(update.message.reply_html(text='Эта функция используется для вычисления длины последовательности или итерируемого '
-                                   'объекта.')['message_id'])
+    update.message.reply_html(text='Эта функция используется для вычисления длины последовательности или итерируемого '
+                                   'объекта.')
 
 
 def func_list(update, context):
@@ -230,10 +230,10 @@ def func_list(update, context):
                     ">>> list({1:'a', 2:'b', 3:'c'})\n"
                     "[1, 2, 3]\n", update.message.chat_id, context,
                     name='func_list')
-    delete_group.append(update.message.reply_html(text='В качестве параметра функция <u><b>list()</b></u> принимает итерируемый объект и '
+    update.message.reply_html(text='В качестве параметра функция <u><b>list()</b></u> принимает итерируемый объект и '
                                    'возвращает '
                                    'список. Она обеспечивает большие гибкость и скорость при создании списков по '
-                                   'сравнению с обычным способом.')['message_id'])
+                                   'сравнению с обычным способом.')
 
 
 def func_map(update, context):
@@ -250,10 +250,10 @@ def func_map(update, context):
                     "5\n"
                     "6\n", update.message.chat_id, context,
                     name='func_map')
-    delete_group.append(update.message.reply_html(text='Используется для применения определенной функции к итерируемому объекту. Она '
+    update.message.reply_html(text='Используется для применения определенной функции к итерируемому объекту. Она '
                                    'возвращает результат в виде итерируемого объекта (списки, кортежи, множества). '
                                    'Можно передать и несколько объектов, но в таком случае нужно будет и '
-                                   'соответствующее количество функций.')['message_id'])
+                                   'соответствующее количество функций.')
 
 
 def func_next(update, context):
@@ -269,8 +269,8 @@ def func_next(update, context):
         ">>> next(x)\n"
         "'d'\n", update.message.chat_id, context,
         name='func_next')
-    delete_group.append(update.message.reply_html(text='Используется для итерируемых объектов. Умеет получать следующий (next) элемент в '
-                                   'последовательности. Добравшись до конца, выводит значение по умолчанию.')['message_id'])
+    update.message.reply_html(text='Используется для итерируемых объектов. Умеет получать следующий (next) элемент в '
+                                   'последовательности. Добравшись до конца, выводит значение по умолчанию.')
 
 
 def func_ord(update, context):
@@ -279,8 +279,8 @@ def func_ord(update, context):
                     '>>> ord("A")\n'
                     '"65"\n', update.message.chat_id, context,
                     name='func_ord')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>ord()</b></u> принимает один символ или строку длиной в один символ '
-                                   'и возвращает соответствующее значение Unicode.')['message_id'])
+    update.message.reply_html(text='Функция <u><b>ord()</b></u> принимает один символ или строку длиной в один символ '
+                                   'и возвращает соответствующее значение Unicode.')
 
 
 def func_reversed(update, context):
@@ -290,18 +290,18 @@ def func_reversed(update, context):
         ">>> list(b)\n"
         "[5, 4, 3]\n", update.message.chat_id, context,
         name='func_reversed')
-    delete_group.append(update.message.reply_html(text='Эта функция предоставляет простой и быстрый способ развернуть порядок элементов в '
+    update.message.reply_html(text='Эта функция предоставляет простой и быстрый способ развернуть порядок элементов в '
                                    'последовательности. В качестве параметра она принимает валидную '
-                                   'последовательность, например список, а возвращает итерируемый объект.')['message_id'])
+                                   'последовательность, например список, а возвращает итерируемый объект.')
 
 
 def func_range(update, context):
     send_photo_file(">>> list(range(10,20,2))\n"
                     "[10, 12, 14, 16, 18]\n", update.message.chat_id, context,
                     name='func_range')
-    delete_group.append(update.message.reply_html(text='Используется для создания последовательности чисел с заданными значениями от и '
+    update.message.reply_html(text='Используется для создания последовательности чисел с заданными значениями от и '
                                    'до, а также интервалом. Такая последовательность часто используется в циклах, '
-                                   'особенно в цикле for.')['message_id'])
+                                   'особенно в цикле for.')
 
 
 def func_sorted(update, context):
@@ -309,9 +309,9 @@ def func_sorted(update, context):
                     ">>> sorted(X)\n"
                     "[1, 3, 4, 5, 7]\n", update.message.chat_id, context,
                     name='func_sorted')
-    delete_group.append(update.message.reply_html(text='Используется для сортировки последовательностей значений разных типов. Например, '
+    update.message.reply_html(text='Используется для сортировки последовательностей значений разных типов. Например, '
                                    'может отсортировать список строк в алфавитном порядке или список числовых '
-                                   'значений по возрастанию или убыванию.')['message_id'])
+                                   'значений по возрастанию или убыванию.')
 
 
 def func_str(update, context):
@@ -322,9 +322,9 @@ def func_str(update, context):
         ">>> str(X)\n"
         "'[5, 6, 7]'\n", update.message.chat_id, context,
         name='func_str')
-    delete_group.append(update.message.reply_html(text='Используется для создания строковых представлений объектов, но не меняет сам '
+    update.message.reply_html(text='Используется для создания строковых представлений объектов, но не меняет сам '
                                    'объект, а возвращает новый. У нее есть встроенные механизмы кодировки и обработки '
-                                   'ошибок, которые помогают при конвертации.')['message_id'])
+                                   'ошибок, которые помогают при конвертации.')
 
 
 def func_set(update, context):
@@ -335,10 +335,10 @@ def func_set(update, context):
                     ">>> set((1,2,3,4,5))\n"
                     "{1, 2, 3, 4, 5}\n", update.message.chat_id, context,
                     name='func_set')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>set()</b></u> используется для создания наборов данных, которые '
+    update.message.reply_html(text='Функция <u><b>set()</b></u> используется для создания наборов данных, которые '
                                    'передаются в '
                                    'качестве параметра. Обычно это последовательность, например строка или список, '
-                                   'которая затем преобразуется в множество уникальных значений.')['message_id'])
+                                   'которая затем преобразуется в множество уникальных значений.')
 
 
 def func_sum(update, context):
@@ -346,9 +346,9 @@ def func_sum(update, context):
                     ">>> sum(x)\n"
                     "24\n", update.message.chat_id, context,
                     name='func_sum')
-    delete_group.append(update.message.reply_html(text='Вычисление суммы — стандартная задача во многих приложениях. И для этого в Python '
+    update.message.reply_html(text='Вычисление суммы — стандартная задача во многих приложениях. И для этого в Python '
                                    'есть встроенная функция. Она автоматически суммирует все элементы и возвращает '
-                                   'сумму.')['message_id'])
+                                   'сумму.')
 
 
 def func_tuple(update, context):
@@ -357,9 +357,9 @@ def func_tuple(update, context):
                     ">>> tuple([1, 2, 3, 4, 5])\n"
                     "(1, 2, 3, 4, 5)\n", update.message.chat_id, context,
                     name='func_tuple')
-    delete_group.append(update.message.reply_html(text='Принимает один аргумент (итерируемый объект), которым может быть, например, '
+    update.message.reply_html(text='Принимает один аргумент (итерируемый объект), которым может быть, например, '
                                    'список или словарь, последовательность или итератор и возвращает его в форме '
-                                   'кортежа. Если не передать объект, то вернется пустой кортеж.')['message_id'])
+                                   'кортежа. Если не передать объект, то вернется пустой кортеж.')
 
 
 def func_type(update, context):
@@ -383,19 +383,19 @@ def func_type(update, context):
                     ">>> type(f)\n"
                     "<class '__main__.Foo2'>\n", update.message.chat_id, context,
                     name='func_type')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>type()</b></u> применяется в двух сценариях. Если передать один '
+    update.message.reply_html(text='Функция <u><b>type()</b></u> применяется в двух сценариях. Если передать один '
                                    'параметр, '
                                    'то она вернет тип этого объекта. Если же передать три параметра, то можно создать'
-                                   ' новый объект.')['message_id'])
+                                   ' новый объект.')
 
 
 def func_print(update, context):
     send_photo_file('''>>> print('Это предложение выводится на экран')
     Это предложение выводится на экран''', update.message.chat_id, context, name='func_print')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>print()</b></u> используется для вывода данных '
+    update.message.reply_html(text='Функция <u><b>print()</b></u> используется для вывода данных '
                                                        'на экран. Эти данные '
                                    'мы можем записать и в файл, но об этом мы поговорим позже.\n'
-                                   ' /special_print, /Special_symbols')['message_id'])
+                                   ' /special_print, /Special_symbols')
 
 
 def special_print(update, context):
@@ -410,12 +410,12 @@ def special_print(update, context):
 Раз два три
 >>> print('Раз', 'два', 'три', sep='--')
 Раз--два--три''', update.message.chat_id, context, name='special_print')
-    delete_group.append(update.message.reply_html(text='Функция <u><b>print</b></u>, наряду с другими аргументами,'
+    update.message.reply_html(text='Функция <u><b>print</b></u>, наряду с другими аргументами,'
                                    ' может (вместе или по отдельности) '
                                    'принимать два следующих аргумента: <u>sep</u> — разделитель аргументов '
                                    '(по умолчанию пробел)'
                                    ' и <u>end</u> — то, что выводится после вывода всех аргументов '
-                                   '(по умолчанию символ начала новой строки).')['message_id'])
+                                   '(по умолчанию символ начала новой строки).')
 
 
 def Special_symbols(update, context):
@@ -427,13 +427,13 @@ def Special_symbols(update, context):
 Предыдущая строка этой программы выглядит так:
 print('восход\t07:15\nзакат\t22:03')
 ''', update.message.chat_id, context, name='Special_symbols1')
-    delete_group.append(update.message.reply_html(text='<u><b>Экранирующая последовательность</b></u>'
+    update.message.reply_html(text='<u><b>Экранирующая последовательность</b></u>'
                                    r'Если внутри кавычек встречается символ \ — обратная косая черта, обратный слеш,'
                                    ' бэкслеш, он вместе с идущим после '
                                    'него символом образует экранирующую последовательность (escape sequence) и '
                                    'воспринимается интерпретатором как единый специальный символ. '
                                    r'В частности, \n — символ начала новой строки. Кроме того, \t — табуляция, '
-                                   r'\'  — кавычка, \\ — просто бэкслеш')['message_id'])
+                                   r'\'  — кавычка, \\ — просто бэкслеш')
     send_photo_file(r'''>>> print(r'\\\\\\\nnnnn <- забор, переходящий в низкую изгородь')
 \\\\\\\nnnnn <- забор, переходящий в низкую изгородь
 '''
@@ -443,9 +443,9 @@ print('восход\t07:15\nзакат\t22:03')
                     "Нужно сказать много важного.\n"
                     "Одной строки для этого мало.\n"
                     "Зато три - в самый раз.\n", update.message.chat_id, context, name='Special_symbols2')
-    delete_group.append(update.message.reply_html(
+    update.message.reply_html(
         text='При этом если приписать букву r перед открывающей строку кавычкой, бэкслеши будут считаться обычными '
              'символами. '
              'А если открывать и закрывать строку не одной,'
              ' а тремя кавычками подряд, внутри можно делать обычные переводы строки '
-             '(внутри одинарных кавычек так делать нельзя).')['message_id'])
+             '(внутри одинарных кавычек так делать нельзя).')

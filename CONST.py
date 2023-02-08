@@ -17,8 +17,6 @@ exp = [[' - что я умею'], [' - содержание справочник
 markup = ReplyKeyboardMarkup(board, one_time_keyboard=False)
 updater = Updater(TOKEN)
 dp = updater.dispatcher
-delete_group = []
-delete_photo = []
 client = Carbon(
     downloads_dir=os.getcwd(),
     colour="rgba(39,40,34,1)",
@@ -52,7 +50,6 @@ def send_photo_file(img_text, id_chat, context, text=None, name=None):
         asyncio.run(create_photo(img_text, name2=name))
         img = open(name + '.png', 'rb')
         pho = context.bot.send_photo(id_chat, img, caption=text)
-        delete_photo.append(pho)
         img.close()
         if os.path.isfile(f'{name}.png'):
             os.remove(f'{name}.png')
