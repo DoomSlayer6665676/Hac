@@ -1,6 +1,7 @@
 from functions import *
 from Metods import *
 from rand import *
+from mat import *
 
 
 def start(update, context):
@@ -59,10 +60,10 @@ def func(update, context):
                                    '<u><b>input()</b></u> - ввод данных \n(/func_input)\n'
                                    '<u><b>print()</b></u> - вывода данных \n(/func_print)\n'
                                    '<u><b>int()</b></u> - создаёт целое число \n(/func_int)\n'
-                                   '<u><b>iter()</b></u> - привращает объект в итерируемый \n(/func_iter)\n'
+                                   '<u><b>iter()</b></u> - превращает объект в итерируемый \n(/func_iter)\n'
                                    '<u><b>max()</b></u> - максимальное значение последовательности \n(/func_max)\n'
                                    '<u><b>min()</b></u> - минимальное значение последовательности \n(/func_min)\n'
-                                   '<u><b>len()</b></u> - длинна последовательности \n(/func_len)\n'
+                                   '<u><b>len()</b></u> - длина последовательности \n(/func_len)\n'
                                    '<u><b>list()</b></u> - создание списков \n(/func_list)\n'
                                    '<u><b>map()</b></u> - применение функций к итерируемому объекту \n(/func_map)\n'
                                    '<u><b>next()</b></u> - перебирает итерируемые объекты \n(/func_next)\n'
@@ -92,11 +93,28 @@ def stri(update, context):
 
 
 def lamb(update, context):
-    pass
+    update.message.reply_html("""Оператор lambda это анонимная, или несвязанная функция, при этом довольно ограниченная.\n""")
 
 
 def math(update, context):
-    pass
+    update.message.reply_html("""Модуль math – один из наиважнейших в Python. Этот модуль предоставляет обширный функционал для работы с числами.\n
+        <u><b>math.ceil(X)</b></u> – округление до ближайшего большего числа.\n(/math_seil)\n
+        <u><b>math.fabs(X)</b></u> - модуль X.\n(/math_fabs)\n
+        <u><b>math.factorial(X)</b></u> - факториал числа X.\n(/math_factorial)\n
+        <u><b>math.floor(X)</b></u> - округление вниз.\n(/math_floor)\n
+        <u><b>math.isfinite(X)</b></u> - является ли X числом.\n(/math_isfinite)\n
+        <u><b>math.isinf(X)</b></u> - является ли X бесконечностью.\n(/math_isinf)\n
+        <u><b>math.isnan(X)</b></u> - является ли X NaN (Not a Number - не число).\n(/math_isnan)\n
+        <u><b>math.sqrt(X)</b></u> - квадратный корень из X.\n(/math_sqrt)\n
+        <u><b>math.acos(X)</b></u> - арккосинус X. В радианах.\n(/math_acos)\n
+        <u><b>math.asin(X)</b></u> - арксинус X. В радианах.\n(/math_asin)\n
+        <u><b>math.atan(X)</b></u> - арктангенс X. В радианах.\n(/math_atan)\n
+        <u><b>math.cos(X)</b></u> - косинус X (X указывается в радианах).\n(/math_cos)\n
+        <u><b>math.sin(X)</b></u> - синус X (X указывается в радианах).\n(/math_sin)\n
+        <u><b>math.tan(X)</b></u> - тангенс X (X указывается в радианах).\n(/math_tan)\n
+        <u><b>math.degrees(X)</b></u> - конвертирует радианы в градусы.\n(/math_degrees)\n
+        <u><b>math.radians(X)</b></u> - конвертирует градусы в радианы.\n(/math_radians)\n
+    """)
 
 
 def rando(update, context):
@@ -142,11 +160,10 @@ def main():
     dp.add_handler(CommandHandler("syss", syss))
     add_function_handler()
     add_random_handler()
+    add_mat_handler()
     updater.start_polling()
     updater.idle()
 
 
 if __name__ == '__main__':
     main()
-
-# жопа
