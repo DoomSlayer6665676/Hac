@@ -1,7 +1,7 @@
 from CONST import *
 
 
-def add_metods_handler(update, context):
+def add_metods_handler():
     dp.add_handler(CommandHandler("list_in", list_in))
     dp.add_handler(CommandHandler("list_not_in", list_not_in))
     dp.add_handler(CommandHandler("list_summa", list_summa))
@@ -469,18 +469,18 @@ def str_str(update, context):
 
 def operations_str(update, context):
     update.message.reply_html(text="""Операции над строками:
-    s2 in s - /str_in
-    s2 not in s - /str_not_in
-    s + s2 - /str_summa
-    s * k - /str_multiply
-    s[n] - /str_ind
-    s[start:stop:step] - /str_slice
-    len(s) - /str_len
-    s += s2 - /str_summpl
-    list(s) - /str_list
-    bool(s) - /str_bool
-    int(s) - /str_int
-    str(x) - /str_str""", reply_markup=create_markup([['/stri', '/operations_str']]))
+    s2 <b>in</b> s - /str_in
+    s2 <b>not in</b> s - /str_not_in
+    s <b>+</b> s2 - /str_summa
+    s <b>*</b> k - /str_multiply
+    s<b>[n]</b> - /str_ind
+    s<b>[start:stop:step]</b> - /str_slice
+    <b>len(s)</b> - /str_len
+    s <b>+=</b> s2 - /str_summpl
+    <b>list(s)</b> - /str_list
+    <b>bool(s)</b> - /str_bool
+    <b>int(s)</b> - /str_int
+    <b>str(x)</b> - /str_str""", reply_markup=create_markup([['/stri', '/operations_str']]))
 
 
 def str_find(update, context):
@@ -614,15 +614,15 @@ def str_replace(update, context):
 
 def methods_str(update, context):
     update.message.reply_html(text="""Методы строк:
-    s.find(s2) - /str_find
-    s.count(s2) - /str_count
-    s.startswith(s2) - /str_swith
-    s.isdigit() - /str_isdigit
-    s.islower() - /str_islower
-    s.lower() - /str_lower
-    s.capitalize() - /str_capitalize
-    s.lstrip() - /str_lstrip
-    s.ljust(k, c) - /str_ljust
-    s.join(a) - /str_join
-    s.split(s2) - /str_split
-    s.replace(s2, s3) - /str_replace""", reply_markup=create_markup([['/stri', '/methods_str']]))
+    <b>s.find(s2)</b> - /str_find
+    <b>s.count(s2)</b> - /str_count
+    <b>s.startswith(s2)</b> - /str_swith
+    <b>s.isdigit()</b> - /str_isdigit
+    <b>s.islower()</b> - /str_islower
+    <b>s.lower()</b> - /str_lower
+    <b>s.capitalize()</b> - /str_capitalize
+    <b>s.lstrip()</b> - /str_lstrip
+    <b>s.ljust(k, c)</b> - /str_ljust
+    <b>s.join(a)</b> - /str_join
+    <b>s.split(s2)</b> - /str_split
+    <b>s.replace(s2, s3)</b> - /str_replace""", reply_markup=create_markup([['/stri', '/methods_str']]))
