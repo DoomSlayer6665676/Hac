@@ -2,13 +2,12 @@ from functions import *
 from Metods import *
 from rand import *
 from mat import *
-from osi import *
 from lam import *
-
+from dat import *
 
 def start(update, context):
     update.message.reply_text(
-        'Привет! Я справочник по языку Python.\nНАЖМИ---> /help')
+        'Привет! Я справочник по языку Python.\n /help')
 
 
 def help(update, context):
@@ -19,20 +18,32 @@ def help(update, context):
 def themes(update, context):
     update.message.reply_text('Темы:\n'
                               '/func - встроенные функции\n'
-                              '/listi - изменение списков\n'
-                              '/stri - изменение строк\n'
+                              '/listi - методы списков\n'
+                              '/stri - методы строк\n'
                               '/lamb - лямбда-функции\n'
                               '/math - модуль math\n'
                               '/rando - модуль random\n'
                               '/date - модуль datetime\n'
                               '/osi - модуль os\n'
-                              '/syss - модуль sys\n', reply_markup=markup)
+                              '/syss - модуль sys\n')
+
+
+def bugs(update, context):
+    pass
 
 
 def techsupport(update, context):
     update.message.reply_text('Если у вас возникла какая-то ошибка,'
                               ' вы можете описать её в нашем официальном телеграмм канале'
                               'https://t.me/+nu9ccH0eIVw3MzYy')
+
+
+def DONATE(update, context):
+    pass
+
+
+def stop(update, context):
+    pass
 
 
 def func(update, context):
@@ -50,10 +61,10 @@ def func(update, context):
                                    '<u><b>input()</b></u> - ввод данных \n(/func_input)\n'
                                    '<u><b>print()</b></u> - вывода данных \n(/func_print)\n'
                                    '<u><b>int()</b></u> - создаёт целое число \n(/func_int)\n'
-                                   '<u><b>iter()</b></u> - привращает объект в итерируемый \n(/func_iter)\n'
+                                   '<u><b>iter()</b></u> - превращает объект в итерируемый \n(/func_iter)\n'
                                    '<u><b>max()</b></u> - максимальное значение последовательности \n(/func_max)\n'
                                    '<u><b>min()</b></u> - минимальное значение последовательности \n(/func_min)\n'
-                                   '<u><b>len()</b></u> - длинна последовательности \n(/func_len)\n'
+                                   '<u><b>len()</b></u> - длина последовательности \n(/func_len)\n'
                                    '<u><b>list()</b></u> - создание списков \n(/func_list)\n'
                                    '<u><b>map()</b></u> - применение функций к итерируемому объекту \n(/func_map)\n'
                                    '<u><b>next()</b></u> - перебирает итерируемые объекты \n(/func_next)\n'
@@ -67,19 +78,19 @@ def func(update, context):
                                    '<u><b>sum()</b></u> - суммирует все элементы множества \n(/func_sum)\n'
                                    '<u><b>tuple()</b></u> - создание кортежей \n(/func_tuple)\n'
                                    '<u><b>type()</b></u> - возвращает тип объекта либо создает новый объект '
-                                   '\n(/func_type)\n', reply_markup=create_markup([['/themes', '/func']]))
+                                   '\n(/func_type)\n')
+
+
+def DEBUG(update, context):
+    pass
 
 
 def listi(update, context):
-    update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как списки, операциях над ними и методах, о генераторах списков и о применении списков.
-    Операции над списками - /operations_list
-    Методы списков - /methods_list""", reply_markup=create_markup([['/themes', '/listi']]))
+    operations_list(update, context)
 
 
 def stri(update, context):
-    update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как строки, операциях над ними и методах, о генераторах строк и о применении списков.
-        Операции над списками - /operations_str
-        Методы списков - /methods_str""", reply_markup=create_markup([['/themes', '/stri']]))
+    operations_str(update, context)
 
 
 def lamb(update, context):
@@ -109,60 +120,84 @@ def lamb(update, context):
         Например, инструкция if или циклы for и while являются примерами инструкций. Заменить инструкцию на значение попросту невозможно.\n
         А вот выражения — это значения. Запросто можно заменить все выражения в программе на значения, и программа продолжит работать корректно.\n
         Тело лямбда-функции должно являться выражением, поскольку его значение будет тем, что она вернет. Обязательно запомните это для работы с лямбда-функциями в будущем.\n
-        """, reply_markup=create_markup([['/themes', '/lamb']]))
+
+        """)
 
 
 def math(update, context):
     update.message.reply_html("""Модуль math – один из наиважнейших в Python. Этот модуль предоставляет обширный функционал для работы с числами.\n
-<u><b>math.ceil(X)</b></u> – округление до ближайшего большего числа.\n(/math_seil)\n
-<u><b>math.fabs(X)</b></u> - модуль X.\n(/math_fabs)\n
-<u><b>math.factorial(X)</b></u> - факториал числа X.\n(/math_factorial)\n
-<u><b>math.floor(X)</b></u> - округление вниз.\n(/math_floor)\n
-<u><b>math.isfinite(X)</b></u> - является ли X числом.\n(/math_isfinite)\n
-<u><b>math.isinf(X)</b></u> - является ли X бесконечностью.\n(/math_isinf)\n
-<u><b>math.isnan(X)</b></u> - является ли X NaN (Not a Number - не число).\n(/math_isnan)\n
-<u><b>math.sqrt(X)</b></u> - квадратный корень из X.\n(/math_sqrt)\n
-<u><b>math.acos(X)</b></u> - арккосинус X. В радианах.\n(/math_acos)\n
-<u><b>math.asin(X)</b></u> - арксинус X. В радианах.\n(/math_asin)\n
-<u><b>math.atan(X)</b></u> - арктангенс X. В радианах.\n(/math_atan)\n
-<u><b>math.cos(X)</b></u> - косинус X (X указывается в радианах).\n(/math_cos)\n
-<u><b>math.sin(X)</b></u> - синус X (X указывается в радианах).\n(/math_sin)\n
-<u><b>math.tan(X)</b></u> - тангенс X (X указывается в радианах).\n(/math_tan)\n
-<u><b>math.degrees(X)</b></u> - конвертирует радианы в градусы.\n(/math_degrees)\n
-<u><b>math.radians(X)</b></u> - конвертирует градусы в радианы.\n(/math_radians)\n
-    """, reply_markup=create_markup([['/themes', '/math']]))
+        <u><b>math.ceil(X)</b></u> – округление до ближайшего большего числа.\n(/math_seil)\n
+        <u><b>math.fabs(X)</b></u> - модуль X.\n(/math_fabs)\n
+        <u><b>math.factorial(X)</b></u> - факториал числа X.\n(/math_factorial)\n
+        <u><b>math.floor(X)</b></u> - округление вниз.\n(/math_floor)\n
+        <u><b>math.isfinite(X)</b></u> - является ли X числом.\n(/math_isfinite)\n
+        <u><b>math.isinf(X)</b></u> - является ли X бесконечностью.\n(/math_isinf)\n
+        <u><b>math.isnan(X)</b></u> - является ли X NaN (Not a Number - не число).\n(/math_isnan)\n
+        <u><b>math.sqrt(X)</b></u> - квадратный корень из X.\n(/math_sqrt)\n
+        <u><b>math.acos(X)</b></u> - арккосинус X. В радианах.\n(/math_acos)\n
+        <u><b>math.asin(X)</b></u> - арксинус X. В радианах.\n(/math_asin)\n
+        <u><b>math.atan(X)</b></u> - арктангенс X. В радианах.\n(/math_atan)\n
+        <u><b>math.cos(X)</b></u> - косинус X (X указывается в радианах).\n(/math_cos)\n
+        <u><b>math.sin(X)</b></u> - синус X (X указывается в радианах).\n(/math_sin)\n
+        <u><b>math.tan(X)</b></u> - тангенс X (X указывается в радианах).\n(/math_tan)\n
+        <u><b>math.degrees(X)</b></u> - конвертирует радианы в градусы.\n(/math_degrees)\n
+        <u><b>math.radians(X)</b></u> - конвертирует градусы в радианы.\n(/math_radians)\n
+    """)
 
 
 def rando(update, context):
-    update.message.reply_html("""Этот модуль реализует генераторы псевдослучайных чисел для различных дистрибутивов.\n
-<u><b>random.random</b></u> - число от 0.0 до 1.0\n(/rand_random)
-<u><b>random.seed</b></u> - семя генератора чисел\n(/rand_seed)
-<u><b>random.uniform</b></u> - вещественное число в диапазоне\n(/rand_uniform)
-<u><b>random.randint</b></u> - целое число в диапазоне\n(/rand_randint)
-<u><b>random.choince</b></u> - элемент из любой последовательности\n(/rand_choince)
-<u><b>random.randrange</b></u> - число из последовательности range\n(/rand_randrange)
-<u><b>random.shuffle</b></u> - перемешивает последовательность\n(/rand_shuffle)""", reply_markup=create_markup([['/themes', '/rando']]))
+    update.message.reply_html("""/rand_random - число от 0.0 до 1.0
+/rand_seed - семя генератора чисел
+/rand_uniform - вещественное число в диапазоне
+/rand_randint - целое число в диапазоне
+/rand_choince - элемент из любой последовательности
+/rand_randrange - число из последовательности range
+/rand_shuffle - перемешивает последовательность""")
 
 
 def date(update, context):
-    update.message.reply_html("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.
-    """, reply_markup=create_markup([['/themes', '/date']]))
+    update.message.reply_html("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.\n
+
+        Классы datetime:\n
+        datetime.date(year, month, day) - стандартная дата. Атрибуты: year, month, day. Неизменяемый объект.\n(/dat_date)\n
+        datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None) - стандартное время, не зависит от даты. Атрибуты: hour, minute, second, microsecond, tzinfo.\n
+        datetime.timedelta - разница между двумя моментами времени, с точностью до микросекунд.\n(/dat_timedelta)\n
+        datetime.tzinfo - абстрактный базовый класс для информации о временной зоне (например, для учета часового пояса и / или летнего времени).\n(/dat_tzinfo)\n
+        datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None) - комбинация даты и времени.\n(/dat_datetime)\n
+        
+
+        Методы класса datetime:\n
+        datetime.now(tz=None) - объект datetime из текущей даты и времени.\n(/dat_now)\n
+        datetime.today() - объект datetime из текущей даты и времени. Работает также, как и datetime.now() со значением tz=None.\n
+        datetime.combine(date, time) - объект datetime из комбинации объектов date и time.\n(/dat_combine)\n
+        datetime.strptime(date_string, format) - преобразует строку в datetime (так же, как и функция strptime из модуля time).\n(/dat_strptime)\n
+        datetime.date() - объект даты (с отсечением времени).\n(/dat_datem)\n
+        datetime.time() - объект времени (с отсечением даты).\n(/dat_time)\n
+        datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]]) - возвращает новый объект datetime с изменёнными атрибутами.\n(/dat_today)\n
+        datetime.timetuple() - возвращает struct_time из datetime.\n(/dat_today)\n
+        datetime.toordinal() - количество дней, прошедших с 01.01.1970.\n(/dat_today)\n
+        datetime.timestamp() - возвращает время в секундах с начала эпохи.\n(/dat_today)\n
+        datetime.weekday() - день недели в виде числа, понедельник - 0, воскресенье - 6.\n(/dat_today)\n
+        datetime.isoweekday() - день недели в виде числа, понедельник - 1, воскресенье - 7.\n(/dat_today)\n
+        datetime.isocalendar() - кортеж (год в формате ISO, ISO номер недели, ISO день недели).\n(/dat_today)\n
+        datetime.isoformat(sep='T') - красивая строка вида "YYYY-MM-DDTHH:MM:SS.mmmmmm" или, если microsecond == 0, "YYYY-MM-DDTHH:MM:SS"\n(/dat_today)\n
+        datetime.ctime() - см. ctime() из модуля time.\n(/dat_today)\n
+
+
+        Обязательные аргументы:\n
+        datetime.MINYEAR (1) ≤ year ≤ datetime.MAXYEAR (9999)\n
+        1 ≤ month ≤ 12\n
+        1 ≤ day ≤ количество дней в данном месяце и году\n
+        Необязательные:\n
+        0 ≤ minute < 60\n
+        0 ≤ second < 60\n
+        0 ≤ microsecond < 1000000\n
+    """)
 
 
 def osi(update, context):
-    update.message.reply_html("""Модуль os в Python — это библиотека функций для работы с операционной системой.\n
-<u><b>/os_info</b></u> - Получение информации об ОС\n
-<u><b>/working_directory</b></u> - Изменение рабочей директории\n
-<u><b>/path_existence</b></u> - Проверка существования пути\n
-<u><b>/creating_directories</b></u> - Создание директорий\n
-<u><b>/deleting_files_directories</b></u> - Удаление файлов и директорий\n
-<u><b>/start_</b></u> - Запуск на исполнение\n
-<u><b>/directory_file_name</b></u> - Получение имени файла и директории\n
-<u><b>/size</b></u> - Вычисление размера\n
-<u><b>/renaming</b></u> - Переименование\n
-<u><b>/content</b></u> - Содержимое директорий\n
-<u><b>/info</b></u> - Информация о файлах и директориях\n
-<u><b>/path_handling</b></u> - Обработка путей\n""", reply_markup=create_markup([['/themes', '/osi']]))
+    update.message.reply_html("""Модуль os в Python — это библиотека функций для работы с операционной системой.
+        """)
 
 
 def syss(update, context):
@@ -173,7 +208,10 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("themes", themes))
+    dp.add_handler(CommandHandler("bugs", bugs))
     dp.add_handler(CommandHandler("techsupport", techsupport))
+    dp.add_handler(CommandHandler("DONATE", DONATE))
+    dp.add_handler(CommandHandler("stop", stop))
     dp.add_handler(CommandHandler("func", func))
     dp.add_handler(CommandHandler("listi", listi))
     dp.add_handler(CommandHandler("stri", stri))
@@ -183,14 +221,14 @@ def main():
     dp.add_handler(CommandHandler("date", date))
     dp.add_handler(CommandHandler("osi", osi))
     dp.add_handler(CommandHandler("syss", syss))
-    add_metods_handler()
     add_function_handler()
     add_random_handler()
     add_mat_handler()
-    add_os_handler()
     add_lam_handler()
+    add_data_handler()
     updater.start_polling()
     updater.idle()
+
 
 
 if __name__ == '__main__':
