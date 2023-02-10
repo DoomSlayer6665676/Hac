@@ -2,7 +2,18 @@ from CONST import *
 
 
 def add_os_handler():
-    pass
+    dp.add_handler(CommandHandler("os_info", os_info))
+    dp.add_handler(CommandHandler("working_directory", working_directory))
+    dp.add_handler(CommandHandler("path_existence", path_existence))
+    dp.add_handler(CommandHandler("creating_directories", creating_directories))
+    dp.add_handler(CommandHandler("deleting_files_directories", deleting_files_directories))
+    dp.add_handler(CommandHandler("start_", start_))
+    dp.add_handler(CommandHandler("directory_file_name", directory_file_name))
+    dp.add_handler(CommandHandler("size", size))
+    dp.add_handler(CommandHandler("renaming", renaming))
+    dp.add_handler(CommandHandler("content", content))
+    dp.add_handler(CommandHandler("info", info))
+    dp.add_handler(CommandHandler("path_handling", path_handling))
 
 
 def os_info(update, context):
@@ -117,7 +128,7 @@ os.removedirs(r"D:\\folder\\first\second\\third")""",
         Для быстрого удаления множества пустых папок следует вызывать функцию removedirs. Таким образом, указав путь к конечной папке, можно легко удалить все родительские директории, но только если они в результате оказываются пустыми.""")
 
 
-def start(update, context):
+def start_(update, context):
     send_photo_file("""""",
                     update.message.chat_id, context,
                     name='start')
@@ -163,16 +174,27 @@ def content(update, context):
 
 
 def info(update, context):
-    send_photo_file("""""",
+    send_photo_file(""">>> import os
+... print(os.stat(r"D:\test.txt"))
+os.stat_result(st_mode=33206, …)""",
                     update.message.chat_id, context,
                     name='info')
     update.message.reply_html(
-        text="""""")
+        text="""Поместив в качестве параметра расположение файла или папки на диске компьютера, возвращает небольшой массив информации. Здесь можно найти данные о размере объекта в байтах, а также некие числовые значения, отображающие доступ и режим его работы.""")
 
 
 def path_handling(update, context):
-    send_photo_file("""""",
+    send_photo_file(""">>> import os
+... print(os.path.split(r"D:\\folder\\test.txt"))
+('D:\\folder', 'test.txt')""",
                     update.message.chat_id, context,
-                    name='path_handling')
+                    name='path_handling1')
     update.message.reply_html(
-        text="""""")
+        text="""Функция split, позволяет разъединять путь к файлу и имя файла в различные строки.""")
+    send_photo_file(""">>> import os
+... print(os.path.join(r"D:\\folder", "test.txt"))
+D:\\folder\\test.txt""",
+                    update.message.chat_id, context,
+                    name='path_handling2')
+    update.message.reply_html(
+        text="""Функция join, позволяет соединить путь к документу с его названием.""")

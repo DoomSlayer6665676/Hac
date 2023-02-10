@@ -11,9 +11,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 TOKEN = '5930700784:AAHZrkr1sEawfpY1bmKAgQzLUn5bYS8y-Q4'
-board = [['/help'], ['/themes', '/bugs'], ['/techsupport', '/DONATE']]
-exp = [[' - что я умею'], [' - содержание справочника', ' - распространённые ошибки'],
-       [' - техподдержка', ' - пожертвования на развитие']]
+board = [['/help'], ['/themes', '/techsupport']]
+exp = [[' - что я умею'], [' - содержание справочника', ' - техподдержка']]
 markup = ReplyKeyboardMarkup(board, one_time_keyboard=False)
 updater = Updater(TOKEN)
 dp = updater.dispatcher
@@ -23,7 +22,7 @@ client = Carbon(
     shadow=False,
     shadow_blur_radius="0px",
     shadow_offset_y="0px",
-    export_size="2x",
+    export_size="3x",
     font_size="18px",
     font_family= "IBM Plex Mono",
     first_line_number=1,
@@ -65,3 +64,7 @@ def send_photo_file(img_text, id_chat, context, text=None, name=None):
 async def create_photo(img_text, name2=None):
     path = await client.create(img_text, file=name2)
     print(path)
+
+
+def create_markup(mar):
+    return ReplyKeyboardMarkup(mar, one_time_keyboard=False)
