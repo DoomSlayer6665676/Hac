@@ -72,12 +72,14 @@ def func(update, context):
 
 def listi(update, context):
     update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как списки, операциях над ними и методах, о генераторах списков и о применении списков.
-    """)
-    operations_list(update, context)
+    Операции над списками - /operations_list
+    Методы списков - /methods_list""", reply_markup=create_markup([['/themes', '/listi']]))
 
 
 def stri(update, context):
-    operations_str(update, context)
+    update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как строки, операциях над ними и методах, о генераторах строк и о применении списков.
+        Операции над списками - /operations_str
+        Методы списков - /methods_str""", reply_markup=create_markup([['/themes', '/stri']]))
 
 
 def lamb(update, context):
@@ -181,6 +183,7 @@ def main():
     dp.add_handler(CommandHandler("date", date))
     dp.add_handler(CommandHandler("osi", osi))
     dp.add_handler(CommandHandler("syss", syss))
+    add_metods_handler()
     add_function_handler()
     add_random_handler()
     add_mat_handler()

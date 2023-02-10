@@ -2,7 +2,59 @@ from CONST import *
 
 
 def add_metods_handler(update, context):
-
+    dp.add_handler(CommandHandler("list_in", list_in))
+    dp.add_handler(CommandHandler("list_not_in", list_not_in))
+    dp.add_handler(CommandHandler("list_summa", list_summa))
+    dp.add_handler(CommandHandler("list_summa", list_summa))
+    dp.add_handler(CommandHandler("list_ind", list_ind))
+    dp.add_handler(CommandHandler("list_slice", list_slice))
+    dp.add_handler(CommandHandler("list_len", list_len))
+    dp.add_handler(CommandHandler("list_max", list_max))
+    dp.add_handler(CommandHandler("list_min", list_min))
+    dp.add_handler(CommandHandler("list_sum", list_sum))
+    dp.add_handler(CommandHandler("list_del", list_del))
+    dp.add_handler(CommandHandler("list_sumpl", list_sumpl))
+    dp.add_handler(CommandHandler("list_bool", list_bool))
+    dp.add_handler(CommandHandler("operations_list", operations_list))
+    dp.add_handler(CommandHandler("list_index", list_index))
+    dp.add_handler(CommandHandler("list_count", list_count))
+    dp.add_handler(CommandHandler("list_append", list_append))
+    dp.add_handler(CommandHandler("list_extend", list_extend))
+    dp.add_handler(CommandHandler("list_insert", list_insert))
+    dp.add_handler(CommandHandler("list_pop", list_pop))
+    dp.add_handler(CommandHandler("list_remove", list_remove))
+    dp.add_handler(CommandHandler("list_reverse", list_reverse))
+    dp.add_handler(CommandHandler("list_sort", list_sort))
+    dp.add_handler(CommandHandler("list_sortr", list_sortr))
+    dp.add_handler(CommandHandler("list_clear", list_clear))
+    dp.add_handler(CommandHandler("list_copy", list_copy))
+    dp.add_handler(CommandHandler("methods_list", methods_list))
+    dp.add_handler(CommandHandler("str_in", str_in))
+    dp.add_handler(CommandHandler("str_not_in", str_not_in))
+    dp.add_handler(CommandHandler("str_summa", str_summa))
+    dp.add_handler(CommandHandler("str_multiply", str_multiply))
+    dp.add_handler(CommandHandler("str_ind", str_ind))
+    dp.add_handler(CommandHandler("str_slice", str_slice))
+    dp.add_handler(CommandHandler("str_len", str_len))
+    dp.add_handler(CommandHandler("str_summpl", str_summpl))
+    dp.add_handler(CommandHandler("str_list", str_list))
+    dp.add_handler(CommandHandler("str_bool", str_bool))
+    dp.add_handler(CommandHandler("str_int", str_int))
+    dp.add_handler(CommandHandler("str_str", str_str))
+    dp.add_handler(CommandHandler("operations_str", operations_str))
+    dp.add_handler(CommandHandler("str_find", str_find))
+    dp.add_handler(CommandHandler("str_count", str_count))
+    dp.add_handler(CommandHandler("str_swith", str_swith))
+    dp.add_handler(CommandHandler("str_isdigit", str_isdigit))
+    dp.add_handler(CommandHandler("str_islower", str_islower))
+    dp.add_handler(CommandHandler("str_lower", str_lower))
+    dp.add_handler(CommandHandler("str_capitalize", str_capitalize))
+    dp.add_handler(CommandHandler("str_lstrip", str_lstrip))
+    dp.add_handler(CommandHandler("str_ljust", str_ljust))
+    dp.add_handler(CommandHandler("str_join", str_join))
+    dp.add_handler(CommandHandler("str_split", str_split))
+    dp.add_handler(CommandHandler("str_replace", str_replace))
+    dp.add_handler(CommandHandler("methods_str", methods_str))
 
 
 def list_in(update, context):
@@ -156,7 +208,7 @@ def operations_list(update, context):
         <b>sum(a)</b> - /list_sum
         <b>del</b> a[n] - /list_del
         a <b>+=</b> a2 - /list_sumpl
-        <b>bool(a)</b> - /list_bool""")
+        <b>bool(a)</b> - /list_bool""", reply_markup=create_markup([['/listi', '/operations_list']]))
 
 
 def list_index(update, context):
@@ -299,7 +351,7 @@ def methods_list(update, context):
     <b>a.sort()</b> - /list_sort
     <b>a.sort(reverse=True)</b> - /list_sortr
     <b>a.clear()</b> - /list_clear
-    <b>a.copy()</b> - /list_copy""")
+    <b>a.copy()</b> - /list_copy""", reply_markup=create_markup([['/listi', '/methods_list']]))
 
 
 def str_in(update, context):
@@ -428,7 +480,7 @@ def operations_str(update, context):
     list(s) - /str_list
     bool(s) - /str_bool
     int(s) - /str_int
-    str(x) - /str_str""")
+    str(x) - /str_str""", reply_markup=create_markup([['/stri', '/operations_str']]))
 
 
 def str_find(update, context):
@@ -573,4 +625,4 @@ def methods_str(update, context):
     s.ljust(k, c) - /str_ljust
     s.join(a) - /str_join
     s.split(s2) - /str_split
-    s.replace(s2, s3) - /str_replace""")
+    s.replace(s2, s3) - /str_replace""", reply_markup=create_markup([['/stri', '/methods_str']]))
