@@ -8,9 +8,7 @@ def add_lam_handler():
     dp.add_handler(CommandHandler("lam_map", lam_map))
     dp.add_handler(CommandHandler("lam_fil", lam_fil))
     dp.add_handler(CommandHandler("lam_sort", lam_sort))
-    dp.add_handler(CommandHandler("math_isnan", math_isnan))
-    dp.add_handler(CommandHandler("math_sqrt", math_sqrt))
-    dp.add_handler(CommandHandler("math_acos", math_acos))
+
 
 
 
