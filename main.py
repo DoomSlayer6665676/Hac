@@ -4,6 +4,7 @@ from rand import *
 from mat import *
 from osi import *
 from lam import *
+from dat import *
 
 
 def start(update, context):
@@ -145,7 +146,38 @@ def rando(update, context):
 
 
 def date(update, context):
-    update.message.reply_html("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.
+    update.message.reply_html("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.\n
+        Классы datetime:\n
+        datetime.date(year, month, day) - стандартная дата. Атрибуты: year, month, day. Неизменяемый объект.\n(/dat_date)\n
+        datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None) - стандартное время, не зависит от даты. Атрибуты: hour, minute, second, microsecond, tzinfo.\n
+        datetime.timedelta - разница между двумя моментами времени, с точностью до микросекунд.\n(/dat_timedelta)\n
+        datetime.tzinfo - абстрактный базовый класс для информации о временной зоне (например, для учета часового пояса и / или летнего времени).\n(/dat_tzinfo)\n
+        datetime.datetime(year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None) - комбинация даты и времени.\n(/dat_datetime)\n
+
+        Методы класса datetime:\n
+        datetime.now(tz=None) - объект datetime из текущей даты и времени.\n(/dat_now)\n
+        datetime.today() - объект datetime из текущей даты и времени. Работает также, как и datetime.now() со значением tz=None.\n
+        datetime.combine(date, time) - объект datetime из комбинации объектов date и time.\n(/dat_combine)\n
+        datetime.strptime(date_string, format) - преобразует строку в datetime (так же, как и функция strptime из модуля time).\n(/dat_strptime)\n
+        datetime.date() - объект даты (с отсечением времени).\n(/dat_datem)\n
+        datetime.time() - объект времени (с отсечением даты).\n(/dat_time)\n
+        datetime.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]]) - возвращает новый объект datetime с изменёнными атрибутами.\n(/dat_today)\n
+        datetime.timetuple() - возвращает struct_time из datetime.\n(/dat_today)\n
+        datetime.toordinal() - количество дней, прошедших с 01.01.1970.\n(/dat_today)\n
+        datetime.timestamp() - возвращает время в секундах с начала эпохи.\n(/dat_today)\n
+        datetime.weekday() - день недели в виде числа, понедельник - 0, воскресенье - 6.\n(/dat_today)\n
+        datetime.isoweekday() - день недели в виде числа, понедельник - 1, воскресенье - 7.\n(/dat_today)\n
+        datetime.isocalendar() - кортеж (год в формате ISO, ISO номер недели, ISO день недели).\n(/dat_today)\n
+        datetime.isoformat(sep='T') - красивая строка вида "YYYY-MM-DDTHH:MM:SS.mmmmmm" или, если microsecond == 0, "YYYY-MM-DDTHH:MM:SS"\n(/dat_today)\n
+        datetime.ctime() - см. ctime() из модуля time.\n(/dat_today)\n
+        Обязательные аргументы:\n
+        datetime.MINYEAR (1) ≤ year ≤ datetime.MAXYEAR (9999)\n
+        1 ≤ month ≤ 12\n
+        1 ≤ day ≤ количество дней в данном месяце и году\n
+        Необязательные:\n
+        0 ≤ minute < 60\n
+        0 ≤ second < 60\n
+        0 ≤ microsecond < 1000000\n
     """, reply_markup=create_markup([['/themes', '/date']]))
 
 
