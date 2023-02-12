@@ -26,8 +26,7 @@ def themes(update, context):
                               '/math - модуль math\n'
                               '/rando - модуль random\n'
                               '/date - модуль datetime\n'
-                              '/osi - модуль os\n'
-                              '/syss - модуль sys\n', reply_markup=markup)
+                              '/osi - модуль os\n', reply_markup=markup)
 
 
 def techsupport(update, context):
@@ -197,10 +196,6 @@ def osi(update, context):
 <u><b>/path_handling</b></u> - Обработка путей\n""", reply_markup=create_markup([['/themes', '/osi']]))
 
 
-def syss(update, context):
-    pass
-
-
 def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
@@ -214,7 +209,6 @@ def main():
     dp.add_handler(CommandHandler("rando", rando))
     dp.add_handler(CommandHandler("date", date))
     dp.add_handler(CommandHandler("osi", osi))
-    dp.add_handler(CommandHandler("syss", syss))
     add_metods_handler()
     add_function_handler()
     add_random_handler()
