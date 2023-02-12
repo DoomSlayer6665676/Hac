@@ -142,14 +142,14 @@ def directory_file_name(update, context):
 ... print(os.path.basename("D:/test.txt"))
 test.txt""",
                     update.message.chat_id, context,
-                    name='directory_file_name')
+                    name='directory_file_name1')
     update.message.reply_html(
         text="""Метод path.basename() позволяет получить имя файла из его полного пути""")
     send_photo_file(""">>> import os
 ... print(os.path.dirname("D:/folder/test.txt"))
 D:/folder""",
                     update.message.chat_id, context,
-                    name='directory_file_name')
+                    name='directory_file_name2')
     update.message.reply_html(
         text="""Метод path.dirname() возвращает путь к заданному документу, получая на вход полный путь к нему""")
 
