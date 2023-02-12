@@ -129,20 +129,29 @@ os.removedirs(r"D:\\folder\\first\second\\third")""",
 
 
 def start_(update, context):
-    send_photo_file("""""",
+    send_photo_file("""import os
+    os.startfile(r"D:\\test.txt")""",
                     update.message.chat_id, context,
-                    name='start')
+                    name='start_')
     update.message.reply_html(
-        text="""""")
+        text="""Метод os.startfile() позволяет запустить файл в привязанной к нему программе.""")
 
 
 def directory_file_name(update, context):
-    send_photo_file("""import os
-os.startfile(r"D:\\test.txt")""",
+    send_photo_file(""">>> import os
+... print(os.path.basename("D:/test.txt"))
+test.txt""",
                     update.message.chat_id, context,
                     name='directory_file_name')
     update.message.reply_html(
-        text="""Метод os.startfile() позволяет запустить файл в привязанной к нему программе.""")
+        text="""Метод path.basename() позволяет получить имя файла из его полного пути""")
+    send_photo_file(""">>> import os
+... print(os.path.dirname("D:/folder/test.txt"))
+D:/folder""",
+                    update.message.chat_id, context,
+                    name='directory_file_name')
+    update.message.reply_html(
+        text="""Метод path.dirname() возвращает путь к заданному документу, получая на вход полный путь к нему""")
 
 
 def size(update, context):

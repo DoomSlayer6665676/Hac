@@ -71,19 +71,19 @@ def func(update, context):
 
 
 def listi(update, context):
-    update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как списки, операциях над ними и методах, о генераторах списков и о применении списков.
+    update.message.reply_html(text="""В этом блоке рассказывается о таком типе данных, как списки, операциях над ними и методах, о генераторах списков и о применении списков.
     Операции над списками - /operations_list
     Методы списков - /methods_list""", reply_markup=create_markup([['/themes', '/listi']]))
 
 
 def stri(update, context):
-    update.message.reply_html("""В этом блоке рассказывается о таком типе данных, как строки, операциях над ними и методах, о генераторах строк и о применении списков.
+    update.message.reply_html(text="""В этом блоке рассказывается о таком типе данных, как строки, операциях над ними и методах, о генераторах строк и о применении списков.
         Операции над списками - /operations_str
         Методы списков - /methods_str""", reply_markup=create_markup([['/themes', '/stri']]))
 
 
 def lamb(update, context):
-    update.message.reply_html("""Лямбда-функция в Python — это просто функция Python. Но это некий особенный тип с ограниченными возможностями.\n
+    update.message.reply_html(text="""Лямбда-функция в Python — это просто функция Python. Но это некий особенный тип с ограниченными возможностями.\n
         Базовый синтаксис лямбда-функции в Python - lambda arguments: expression\n
         Возникает вопрос: а зачем нужны лямбда-функции, если их можно объявлять традиционным образом? 
         Но на самом деле, они полезны лишь в том случае, когда нужна одноразовая функция. Такие функции еще называют анонимными.\n
@@ -113,7 +113,7 @@ def lamb(update, context):
 
 
 def math(update, context):
-    update.message.reply_html("""Модуль math – один из наиважнейших в Python. Этот модуль предоставляет обширный функционал для работы с числами.\n
+    update.message.reply_html(text="""Модуль math – один из наиважнейших в Python. Этот модуль предоставляет обширный функционал для работы с числами.\n
 <u><b>math.ceil(X)</b></u> – округление до ближайшего большего числа.\n(/math_seil)\n
 <u><b>math.fabs(X)</b></u> - модуль X.\n(/math_fabs)\n
 <u><b>math.factorial(X)</b></u> - факториал числа X.\n(/math_factorial)\n
@@ -134,7 +134,7 @@ def math(update, context):
 
 
 def rando(update, context):
-    update.message.reply_html("""Этот модуль реализует генераторы псевдослучайных чисел для различных дистрибутивов.\n
+    update.message.reply_html(text="""Этот модуль реализует генераторы псевдослучайных чисел для различных дистрибутивов.\n
 <u><b>random.random</b></u> - число от 0.0 до 1.0\n(/rand_random)
 <u><b>random.seed</b></u> - семя генератора чисел\n(/rand_seed)
 <u><b>random.uniform</b></u> - вещественное число в диапазоне\n(/rand_uniform)
@@ -145,7 +145,7 @@ def rando(update, context):
 
 
 def date(update, context):
-    update.message.reply_html("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.\n
+    update.message.reply_text("""Модуль datetime предназначен для работы с датами и временем и предоставляет, кроме функций, несколько новых типов данных.\n
         Классы datetime:\n
         datetime.date(year, month, day) - стандартная дата. Атрибуты: year, month, day. Неизменяемый объект.\n(/dat_date)\n
         datetime.time(hour=0, minute=0, second=0, microsecond=0, tzinfo=None) - стандартное время, не зависит от даты. Атрибуты: hour, minute, second, microsecond, tzinfo.\n
@@ -181,7 +181,7 @@ def date(update, context):
 
 
 def osi(update, context):
-    update.message.reply_html("""Модуль os в Python — это библиотека функций для работы с операционной системой.\n
+    update.message.reply_html(text="""Модуль os в Python — это библиотека функций для работы с операционной системой.\n
 <u><b>/os_info</b></u> - Получение информации об ОС\n
 <u><b>/working_directory</b></u> - Изменение рабочей директории\n
 <u><b>/path_existence</b></u> - Проверка существования пути\n
@@ -215,6 +215,7 @@ def main():
     add_mat_handler()
     add_os_handler()
     add_lam_handler()
+    add_data_handler()
     updater.start_polling()
     updater.idle()
 
